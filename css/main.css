@@ -115,6 +115,15 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url("../img/code.jpg");
 }
 
+
+#musicHeader {
+  background-image: url("../img/arcade.jpg");
+}
+
+#russianHeader {
+  background-image: url("../img/hero.jpg");
+}
+
 #contactHeader {
   background-image: url("../img/arcade.jpg");
 }
