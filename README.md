@@ -1,2 +1,2 @@
 # portfolio
-Starter portfolio template project
+Starter template project 
