@@ -164,8 +164,8 @@ For the second table the chosen endpoint was DBpedia. We followed a “Treasure 
    The “FILTER regex” function allowed us to retrieve the label of all people whose name contains “Gioacchino” or “Rossini” (case-insensitive). 
    Once we found the URI, we were able to build a query that returned all of Rossini’s works, as well their premiere date. <br>
    Below you can find the query and the table. <br>
-   <img src="img/querywork.png" alt="offset"style="width: 400px; height: auto;">  
-   <img src="img/works.png" alt="offset"style="width: 400px; height: auto;">  
+   <img src="img/querywork.png" alt="queryw"style="width: 400px; height: auto;">  
+   <img src="img/works.png" alt="works"style="width: 400px; height: auto;">  
    <br>
  <br> 
 <b>5. Chart</b> <br>  
@@ -183,11 +183,11 @@ This approach serves as a valuable method for gaining insight into the data extr
       <b>7. Text search</b> <br>
   To further develop our story, we decided to add the text search feature, enabling our viewers to broaden their horizons by looking for other information concerning people within the MusicBo corpus that left a lasting mark in Bologna’s musical landscape. <br>
 In this case, the query retrieves information about a person from the Wikidata endpoint based on a search term. It fetches musician’s name, and if available, also the birth and death year, along with an associated image. We employed the “SERVICE” statement to establish a connection with the Wikidata endpoint, ensuring that the extracted results exclusively feature individuals from the Polifonia knowledge graph. The variable ?musician is associated with ?wiki, indicating that the search term should be matched with the musician’s name. Additionally, to ensure the query results are in English, the SERVICE wikibase:label { bd:serviceParam wikibase:language "en".}
-was added. 
+was added. <br>
 
-   
-
-   
+<img src="img/textsearch.png" alt="txtsrch"style="width: 400px; height: auto;">  <br>
+   As you can see from the results, by searching for a musician name such as Mozart, it shows the available data. <br>   
+<img src="img/mozart.png" alt="mozart"style="width: 400px; height: auto;">  <br>
 
             </p>
           </div>
