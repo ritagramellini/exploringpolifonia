@@ -104,67 +104,23 @@ Here are the results: <br>
 
 Then, we created the following queries, where the variables ?s stands for subject: <br>
 
-1. Number of people mentioned <br>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
-PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
-SELECT distinct (count(distinct ?s) as ?count)  <br>
-WHERE { <br>
-?s rdf:type amr:Person . <br>
-} <br>
-<br> 
-2. Number of cities mentioned <br>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
-PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
- 
-SELECT distinct (count(distinct ?s) as ?count) <br>
-WHERE { <br>
-?s rdf:type amr:City. <br>
-} <br>
-
+<img src="img/queryp.png" style="width: 400px; height: auto;">
+<img src="img/queryc.png" style="width: 400px; height: auto;"> 
+   <br>
 
 These queries retrieve all the people and cities cited in the corpus. The function (count(distinct ?s as ?count) provides us with the number of mentions without duplicates, as displayed in the pictures below: <br>
-<img src="img/queryppl.png" alt="Counter of the people mentioned in MusicBo" style="width: 300px; height: auto;" >
-<img src="img/querycity.png" alt="Counter of the cities mentioned in MusicBo"style="width: 300px; height: auto;">  
+<img src="img/queryppl.png" alt="query people" style="width: 300px; height: auto;" >
+<img src="img/querycity.png" alt="query cities"style="width: 300px; height: auto;">  
   <br>
   Once we ran the queries on Melody for the counter function, the results are displayed as follows: <br>
-  <img src="img/counterpc.png" alt="Counter of the cities mentioned in MusicBo"style="width: 200px; height: auto;"> 
+  <img src="img/counterpc.png" alt="Counter of the cities mentioned in MusicBo"style="width: 300px; height: auto;"> 
 <br> 
 <br> 
 <b>1. Map </b> <br>
   To deepen our quantitative study, we decided to discover which cities were specifically mentioned. <br> After defining all map entities in the MusicBo corpus, we retrieved data about their geographical coordinates from the Wikidata knowledge graph. This was possible thanks to the SERVICE function, which allowed us to include data from the Wikidata endpoint and integrate it with MusicBo data in a single SPARQL query. This tool was particularly important in the creation of the story, as we were able to extend the capabilities of SPARQL and enrich our queries and to obtain more comprehensive results. <br> 
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> <br>
-PREFIX owl: <http://www.w3.org/2002/07/owl#> <br>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/> <br>
-PREFIX wikibase: <http://wikiba.se/ontology#> <br>
-PREFIX p: <http://www.wikidata.org/prop/> <br>
-PREFIX wd: <http://www.wikidata.org/entity/> <br>
-PREFIX ps: <http://www.wikidata.org/prop/statement/> <br>
-PREFIX psv: <http://www.wikidata.org/prop/statement/value/> <br>
-PREFIX wdr: <http://www.w3.org/2007/05/powder#> <br>
-PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
-
-SELECT DISTINCT ?point ?label ?frameInstance ?lat ?long <br>
-
-WHERE { <br>
-
-  ?cityUri rdf:type amr:City ; <br>
-    owl:sameAs ?point ;  <br>
-    amr:name ?label . <br>
-
-  FILTER (regex(str(?point), "http://www.wikidata.org/entity/", "i")) <br>
-
-  ?frameInstance ?p ?cityUri ; <br>
-    rdf:type ?frame . <br>
-SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  <br>
-  { ?point wdt:P31/wdt:P279* wd:Q515 . <br>
-    ?point p:P625 ?coords_stmt . <br>
-    ?coords_stmt ps:P625 ?coords; <br>
-      psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] . <br>
-
-  } <br>
-  } <br>
+ <img src="img/querymap.png" alt="query map"style="width: 300px; height: auto;"> 
+   <br>
 
 
   
@@ -175,38 +131,17 @@ SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  <br>
 <b>3. Charts</b> <br>
 To further develop our research, we created a list of the most mentioned cities and people in the corpus. 
   The results are shown in a bar chart, which ranks each city and person based on their occurrences. <br>
-1. Top 10 most cited cities  <br>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  <br>
-PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>  <br> 
- 
-SELECT DISTINCT ?label (COUNT(distinct ?s) as ?count)  <br>
-WHERE  <br>
-{?s rdf:type amr:City ;  <br>
-amr:name ?label  . <br>
-} <br>
+  <img src="img/query10c.png" alt="Map"style="width: 300px; height: auto;">  
+<img src="img/query10p.png" alt="Map"style="width: 300px; height: auto;">  
+   <br>
+For those two queries, we used the "GROUP BY ?label ?count", which means that the query will generate groups where each group represents a unique combination of city label or person label 
+   and its corresponding count, while the "ORDER BY DESC(?count)" ensures that the results are sorted from the highest count to the lowest count. Finally, the “LIMIT 10” provides only the first 10 results. <br>
+   The queries’ results were the following: 
 
-GROUP BY ?label ?count  <br>
-ORDER BY DESC(?count) <br>
-LIMIT 10 <br>
- <br>
-2. Top 10 most cited people  <br>  
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
-PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
-
-SELECT distinct ?label (COUNT(distinct ?s) as ?count) <br>
-WHERE {?s rdf:type amr:Person.  <br>
-    ?s amr:name ?label  . <br>
-} <br>
- 
-GROUP BY ?label ?count  <br>
-ORDER BY DESC(?count) <br>
-LIMIT 10 <br>
-For those two queries, we used the "GROUP BY ?label ?count", which means that the query will generate groups where each group represents a unique combination of city label or person label and its corresponding count, while the "ORDER BY DESC(?count)" ensures that the results are sorted from the highest count to the lowest count.
 <br> 
-    <img src="img/10c.png" alt="Map"style="width: 300px; height: auto;">  
-    <img src="img/10p.png" alt="Map"style="width: 300px; height: auto;">  
-
-  
+    <img src="img/10c.png" alt="10c"style="width: 350px; height: auto;">  
+    <img src="img/10p.png" alt="10p"style="width: 300px; height: auto;">  
+  <br> 
             </p>
           </div>
         </div>
