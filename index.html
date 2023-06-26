@@ -102,15 +102,17 @@ Here are the results:
                 <br>
 
 Then, we created the following queries, where the variables ?s stands for subject: <br>
-1. Number of people mentioned <br>
+
+              1. Number of people mentioned <br>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
 PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
 SELECT distinct (count(distinct ?s) as ?count)  <br>
 WHERE { <br>
 ?s rdf:type amr:Person . <br>
-} <br>
+<pre> } <br>
 
 2. Number of cities mentioned <br>
+</pre>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
 PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
  
