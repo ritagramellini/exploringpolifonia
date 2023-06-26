@@ -96,7 +96,8 @@ Our initial purpose was to discover the frequency of people and cities mentioned
 The sentences inserted were: <br>
 1. Mozart is a person. <br>
 2. Bologna is a city. <br>
-Here are the results: 
+Here are the results: <br> 
+              
 <img src="img/fred1.png" style="width: 400px; height: auto;">
 <img src="img/fred2.png" style="width: 400px; height: auto;">
                 <br>
@@ -109,10 +110,9 @@ PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
 SELECT distinct (count(distinct ?s) as ?count)  <br>
 WHERE { <br>
 ?s rdf:type amr:Person . <br>
-<pre> } <br>
-
+} <br>
+&nbsp;&nbsp;
 2. Number of cities mentioned <br>
-</pre>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
 PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
  
@@ -123,8 +123,8 @@ WHERE { <br>
 
 
 These queries retrieve all the people and cities cited in the corpus. The function (count(distinct ?s as ?count) provides us with the number of mentions without duplicates, as displayed in the pictures below: <br>
-<img src="img/queryppl.png" alt="Counter of the people mentioned in MusicBo" style="width: 200px; height: auto;" >
-<img src="img/querycity.png" alt="Counter of the cities mentioned in MusicBo"style="width: 200px; height: auto;">  
+<img src="img/queryppl.png" alt="Counter of the people mentioned in MusicBo" style="width: 300px; height: auto;" >
+<img src="img/querycity.png" alt="Counter of the cities mentioned in MusicBo"style="width: 300px; height: auto;">  
   <br>
 
 
