@@ -89,7 +89,7 @@ This <a href="https://melody-data.github.io/stories/published_stories/story_1686
 The aim was to highlight the multifaceted influences that shape the city's musical culture. The starting point for this story was the exploration of the “City” and “Person” ontologies in the Polifonia knowledge graph and, afterwards, the further research of their entities by means of the Wikidata and DBpedia endpoints. 
  <br>
  <br> 
-              <b>1. Counter</b> <br>
+              <b>1. Counters</b> <br>
 Our initial purpose was to discover the frequency of people and cities mentioned in the MusicBo corpus. 
 To construct the query, it was essential to determine the correct designation for the entity ‘person’ and ‘city’ within the Polifonia knowledge graph. 
 To assist in this task, we utilized <a href="https://arco.istc.cnr.it/txt-amr-fred/">FRED</a>, a tool specifically designed to transform texts into a frame-based knowledge graph. 
@@ -167,11 +167,46 @@ SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  <br>
   } <br>
 
 
+  
+  The map below enables us to visualize the results, which show that most cities (1042) are located in Italy. <br>
+  <img src="img/map.png" alt="Map"style="width: 300px; height: auto;">  
+<br> 
+ <br> 
+<b>3. Charts</b> <br>
+To further develop our research, we created a list of the most mentioned cities and people in the corpus. 
+  The results are shown in a bar chart, which ranks each city and person based on their occurrences. <br>
+1. Top 10 most cited cities  <br>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  <br>
+PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>  <br> 
+ 
+SELECT DISTINCT ?label (COUNT(distinct ?s) as ?count)  <br>
+WHERE  <br>
+{?s rdf:type amr:City ;  <br>
+amr:name ?label  . <br>
+} <br>
+
+GROUP BY ?label ?count  <br>
+ORDER BY DESC(?count) <br>
+LIMIT 10 <br>
+ <br>
+2. Top 10 most cited people  <br>  
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
+PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
+
+SELECT distinct ?label (COUNT(distinct ?s) as ?count) <br>
+WHERE {?s rdf:type amr:Person.  <br>
+    ?s amr:name ?label  . <br>
+} <br>
+ 
+GROUP BY ?label ?count  <br>
+ORDER BY DESC(?count) <br>
+LIMIT 10 <br>
+For those two queries, we used the "GROUP BY ?label ?count", which means that the query will generate groups where each group represents a unique combination of city label or person label and its corresponding count, while the "ORDER BY DESC(?count)" ensures that the results are sorted from the highest count to the lowest count.
+<br> 
+    <img src="img/10c.png" alt="Map"style="width: 300px; height: auto;">  
+    <img src="img/10p.png" alt="Map"style="width: 300px; height: auto;">  
 
   
-  The map below enables us to visualize the results, which show that most cities (1042) are located in Italy.
-
-
             </p>
           </div>
         </div>
