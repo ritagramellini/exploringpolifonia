@@ -152,13 +152,12 @@ While building the query, we added the “OPTIONAL” filter to include addition
 An issue we encountered was that of language duplicates. This problem was solved thanks to the FILTER (lang(?label) = “en”) function, which ensured that only English labels are included in the results. This function was chosen over the other FILTER langMatches(lang(?label), “en“) as it also returned other variations of English such as “en-gb”, “en-us”, and so on. Instead, FILTER (lang(?label) = “en”) includes only those results that exactly match the set language condition. <br>
 It was then necessary to include an “OFFSET” in order to refine the query. As displayed below, the initial query generated four results. By implementing this function, it was specified to skip the first three results and start from the fourth, which was the final entry. Therefore, the resulting table only displays one outcome. <br>
 
+ <img src="img/offset.png" alt="offset"style="width: 300px; height: auto;"> 
+<br>
 
-
-
-   
-   Here is the table as displayed on Melody: 
-                                                                                                                                                                                                                                                                                                                                         
-
+   Here is the table as displayed on Melody: <br>
+ <img src="img/rox.png" alt="offset"style="width: 300px; height: auto;">                                                                                                                                                                                                                                                                                                                                    
+<br>
             </p>
           </div>
         </div>
