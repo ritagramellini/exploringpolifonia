@@ -104,8 +104,8 @@ Here are the results: <br>
 
 Then, we created the following queries, where the variables ?s stands for subject: <br>
 
-<img src="img/queryp.png" style="width: 400px; height: auto;">
-<img src="img/queryc.png" style="width: 400px; height: auto;"> 
+<img src="img/queryp.png" style="width: 300px; height: auto;">
+<img src="img/queryc.png" style="width: 300px; height: auto;"> 
    <br>
 
 These queries retrieve all the people and cities cited in the corpus. The function (count(distinct ?s as ?count) provides us with the number of mentions without duplicates, as displayed in the pictures below: <br>
@@ -113,7 +113,7 @@ These queries retrieve all the people and cities cited in the corpus. The functi
 <img src="img/querycity.png" alt="query cities"style="width: 300px; height: auto;">  
   <br>
   Once we ran the queries on Melody for the counter function, the results are displayed as follows: <br>
-  <img src="img/counterpc.png" alt="Counter of the cities mentioned in MusicBo"style="width: 300px; height: auto;"> 
+  <img src="img/counterpc.png" alt="Counter of the cities mentioned in MusicBo"style="width: 250px; height: auto;"> 
 <br> 
 <br> 
 <b>1. Map </b> <br>
@@ -125,21 +125,21 @@ These queries retrieve all the people and cities cited in the corpus. The functi
 
   
   The map below enables us to visualize the results, which show that most cities (1042) are located in Italy. <br>
-  <img src="img/map.png" alt="Map"style="width: 300px; height: auto;">  
+  <img src="img/map.png" alt="Map"style="width: 350px; height: auto;">  
 <br> 
  <br> 
 <b>3. Charts</b> <br>
 To further develop our research, we created a list of the most mentioned cities and people in the corpus. 
   The results are shown in a bar chart, which ranks each city and person based on their occurrences. <br>
-  <img src="img/query10c.png" alt="Map"style="width: 300px; height: auto;">  
-<img src="img/query10p.png" alt="Map"style="width: 300px; height: auto;">  
+  <img src="img/query10c.png" alt="quey10c"style="width: 300px; height: auto;">  
+<img src="img/query10p.png" alt="query1'p"style="width: 330px; height: auto;">  
    <br>
 For those two queries, we used the "GROUP BY ?label ?count", which means that the query will generate groups where each group represents a unique combination of city label or person label 
    and its corresponding count, while the "ORDER BY DESC(?count)" ensures that the results are sorted from the highest count to the lowest count. Finally, the “LIMIT 10” provides only the first 10 results. <br>
    The queries’ results were the following: 
 
 <br> 
-    <img src="img/10c.png" alt="10c"style="width: 350px; height: auto;">  
+    <img src="img/10c.png" alt="10c"style="width: 330px; height: auto;">  
     <img src="img/10p.png" alt="10p"style="width: 300px; height: auto;">  
   <br> 
             </p>
