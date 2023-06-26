@@ -93,9 +93,9 @@ The aim was to highlight the multifaceted influences that shape the city's music
 Our initial purpose was to discover the frequency of people and cities mentioned in the MusicBo corpus. 
 To construct the query, it was essential to determine the correct designation for the entity ‘person’ and ‘city’ within the Polifonia knowledge graph. 
 To assist in this task, we utilized <a href="https://arco.istc.cnr.it/txt-amr-fred/">FRED</a>, a tool specifically designed to transform texts into a frame-based knowledge graph. 
-The sentences inserted were: <br>
+The sentences inserted were: <br> <br>
 1. Mozart is a person. <br>
-2. Bologna is a city. <br>
+2. Bologna is a city. <br> <br>
 Here are the results: <br> 
               
 <img src="img/fred1.png" style="width: 400px; height: auto;">
@@ -131,7 +131,44 @@ These queries retrieve all the people and cities cited in the corpus. The functi
 <br> 
 <br> 
 <b>1. Map </b> <br>
-  To deepen our quantitative study, we decided to discover which cities were specifically mentioned. 
+  To deepen our quantitative study, we decided to discover which cities were specifically mentioned. <br>
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> <br>
+PREFIX owl: <http://www.w3.org/2002/07/owl#> <br>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <br>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/> <br>
+PREFIX wikibase: <http://wikiba.se/ontology#> <br>
+PREFIX p: <http://www.wikidata.org/prop/> <br>
+PREFIX wd: <http://www.wikidata.org/entity/> <br>
+PREFIX ps: <http://www.wikidata.org/prop/statement/> <br>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/> <br>
+PREFIX wdr: <http://www.w3.org/2007/05/powder#> <br>
+PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/> <br>
+
+SELECT DISTINCT ?point ?label ?frameInstance ?lat ?long <br>
+
+WHERE { <br>
+
+  ?cityUri rdf:type amr:City ; <br>
+    owl:sameAs ?point ;  <br>
+    amr:name ?label . <br>
+
+  FILTER (regex(str(?point), "http://www.wikidata.org/entity/", "i")) <br>
+
+  ?frameInstance ?p ?cityUri ; <br>
+    rdf:type ?frame . <br>
+SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>  <br>
+  { ?point wdt:P31/wdt:P279* wd:Q515 . <br>
+    ?point p:P625 ?coords_stmt . <br>
+    ?coords_stmt ps:P625 ?coords; <br>
+      psv:P625 [ wikibase:geoLatitude ?lat; wikibase:geoLongitude ?long ] . <br>
+
+  } <br>
+  } <br>
+
+
+
+  
   The map below enables us to visualize the results, which show that most cities (1042) are located in Italy.
 
 
