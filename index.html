@@ -249,8 +249,7 @@ To gain deeper insight into the organizations in Bologna, we created a query tha
 To focus exclusively on the organizations located in Bologna, we introduced the variable ?cityUri, which is defined as an instance of amr:City.
 Additionally, we assigned a label to the city and filtered the results using the “FILTER regex (?label, "Bologna", "i")” statement. This ensures that only cities with the label containing “Bologna” are included in the query results. <br>
   Once we obtained the results, we noticed that the entity 'San Petronio' was associated with two foundation dates.  <br>
-
-  (foto con le due date diverse)
+   <img src="img/1350.png" style="width: 800px; height: auto;"> <br>
   <br>
   Consequently, we did a search to disambiguate the results. It turned out that 1350 was the birthdate of the organization's founder, not the foundation date of the organization itself. Therefore, we included the “FILTER (YEAR(?foundationDate) != 1350) to eliminate the unrelated result. <br>
    <img src="img/qtableorg.png" style="width: 400px; height: auto;"> <br>
@@ -269,7 +268,7 @@ In order to learn more about the organisations in Bologna and their occurrences 
 To create the query, we initially referred to the <a href="https://catalogo.beniculturali.it/">Catalogo dei Beni Culturali </a> to gather additional information about the organization. 
   On the website, we discovered the <a href="https://catalogo.beniculturali.it/detail/ArchitecturalOrLandscapeHeritage/0800264156">page</a> dedicated to the organization's building, which provided a link to the <a href="  https://dati.beniculturali.it/lodview-arco/resource/ArchitecturalOrLandscapeHeritage/0800264156.html">RDF page</a> of the entity. This RDF page likely contains further data related to the organization, which were incorporated into our query for a more detailed analysis. 
   <br>
-  screen query 
+    <img src="img/qbuilding.png" style="width: 400px; height: auto;">
      <img src="img/building.png" style="width: 400px; height: auto;"> 
   <br><br>
 
@@ -288,10 +287,18 @@ Therefore, we worked on providing an overview of Giuseppe Torelli through the fo
 Here is the final table on Melody: <br>
    <img src="img/torelli.png" style="width: 400px; height: auto;"> <br>
   <br><br>
+  
 <b>7. Counters </b> <br>
-To give a more in-depth analysis of the role of violinists in the music scene of the XVIII century, we conducted an examination of various types of musicians. Through the use of counters, we were able to gather quantitative data that clearly demonstrated the elevated presence of violinists. These findings allowed us to show that violinists were of great importance and much more required compared to other musicians. 
+To give a more in-depth analysis of the role of violinists in the music scene of the XVIII century, we conducted an examination of various types of musicians. Since we wanted to focus on a specific century, we set the violinists' date of birth with the "FILTER (YEAR(?birthDate) > 1699 && YEAR(?birthDate) < 1800  )" statement. Through the use of counters, we were able to gather quantitative data that clearly demonstrated the elevated presence of violinists. These findings allowed us to show that violinists were of great importance and much more required compared to other musicians. 
 <br>
-  foto counters e queries 
+    <img src="img/count1.png" style="width: 400px; height: auto;"> 
+    <img src="img/count2.png" style="width: 400px; height: auto;"> 
+   <img src="img/count3.png" style="width: 400px; height: auto;"> 
+    <img src="img/count4.png" style="width: 400px; height: auto;"> 
+ <img src="img/count5.png" style="width: 400px; height: auto;"> 
+    <img src="img/count6.png" style="width: 400px; height: auto;"> 
+  <img src="img/counters1.png" style="width: 400px; height: auto;"> 
+  <img src="img/counters2.png" style="width: 400px; height: auto;"> 
   <br><br>
   
 <b>8. Line chart</b> <br>
@@ -303,18 +310,18 @@ We decided then to conduct a diachronic study to show the rise of violinists’ 
   This issue was solved by adding the BIND function to extract the year within the query. ​​In simple terms, the BIND keyword is used to assign a value to a variable. It allows to create a new variable and assign a specific value or expression to it, which can then be used in subsequent parts of the query. In the provided query, the BIND keyword is used to create a new variable called ?year and assign it the value of the year component of a date.
 Here is the final query and the line chart on Melody: 
 <br>
-  foto query + 
+   <img src="img/qtimeline.png" style="width: 400px; height: auto;"> 
    <img src="img/timeline.png" style="width: 400px; height: auto;"> 
   <br><br>
   <b>9. Map</b> <br>
   Our research was then directed to learning about the country of citizenship of the violinists from the XVIII century: this is a data that can be perfectly illustrated by the map function. Thus, we generated this query:
 <br>
-  screen query 
+  <img src="img/qviolmap.png" style="width: 400px; height: auto;"> 
   <br>
   The query gave us back the following map: <br>
-(screen map)
+  <img src="img/mapviolinists.png" style="width: 400px; height: auto;"> 
 <br><br>
-    <b>10. Map</b> <br>
+    <b>10. Text search</b> <br>
 To extend the study about other important violinists, the text search function has been added. The query was used to gather information about violinists born in a specific city and is performed on the Wikidata endpoint. However, we used the “SERVICE” to ensure that the results only included individuals from the Polifonia knowledge graph. 
 <br>
  <img src="img/qvioltxtsearch.png" style="width: 400px; height: auto;"> 
