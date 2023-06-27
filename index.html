@@ -272,19 +272,25 @@ IMAGE QUERY COUNTER<br>
 
 Once we ran the query on Melody for the counter function, the given result was the following:<br>
 
-IMAGE COUNTER <br>
+IMAGE COUNTER 
+   <br>
+   <br>
 
    <b>2. Map</b> <br>
    Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: <br>
 
   IMAGE QUERY MAP <br>
-   IMAGE MAP <br>
+   IMAGE MAP 
+   <br>
+   <br>
    
    <b>3. Doughnut chart</b> <br>
    Having a particular interest in the development of classical music in Russia, we narrowed our research to the top 10 most cited Russian composers in MusicBo.The doughnut chart ranks the composers, from the most mentioned to the least mentioned one, based on their occurrences in the corpus. Once again, we started from the counter query and added a UNION function uniting two triplets that defined the person as having an origin from either Russia or the Russian Empire, since we were not sure to which country people in the 18th-19th century belonged. Below you can find the query and the doughnut chart. <br>
 
    IMAGE QUERY DOUGHNUT <br>
-   IMAGE DOUGHNUT <br>
+   IMAGE DOUGHNUT 
+   <br>
+   <br>
 
    <b>4. Table</b> <br>
    To give a more in-depth analysis, our focus moved to analysing 5 of the 10 most mentioned Russian composers, since, through the interrogation of the MusicBo corpus, we found out they are part of the same composition group: The Five or The Mighty Five. 
@@ -296,13 +302,17 @@ We started the query with the SERVICE function, since we already had found the W
 
    As you can see from the results, by searching for the composers, it shows the available data for each of them:<br>
 
-   IMAGE TABLE 1 <br>
+   IMAGE TABLE 1 
+   <br>
+   <br>
 
    <b>5. Sound table </b><br>
    While exploring the Wikidata page of The Five, we were able to find an audio source of one of their compositions, which we thought would be interesting to add in order to deepen our knowledge about the chosen theme. Interestingly, the audio player would work fine on Google Chrome, but on Safari it did not. <br>
 
    IMAGE QUERY TABLE SOUND <br>
-   IMAGE TABLE SOUND <br>
+   IMAGE TABLE SOUND 
+   <br>
+   <br>
 
    <b>5. Counter</b>
    To better explore the Russian musical landscape of the 19th century, we chose to create a query showing the number of composition groups existing at that time. 
@@ -310,7 +320,9 @@ We started the query with the SERVICE function, since we already had found the W
 While we were exploring the results, even though we added in the query the predicate “has origin in Russian Empire” (?composer ?origin wd:Q34266.), we noticed that there were many results not relevant to the research. For this reason, we applied the FILTER (!regex(str(?label), in order to exclude certain labels that contain specific keywords such as “American”, “Swedish”, “Soviet”, and “USSR”. <br>
 
    IMAGE QUERY SECONDO COUNTER<br> 
-   IMAGE SECONDO COUNTER <br>
+   IMAGE SECONDO COUNTER 
+   <br>
+   <br>
 
    <b>6. Linechart </b><br>
    Our focus then shifted to works of art composed in Russia, in order to show the variation in time after the influence of classical music in the 1800s. The work of art variable was defined as being composed by an author, who had the citizenship “Russian Empire” used previously. 
@@ -323,7 +335,9 @@ This variation in time of the Russian works of art can be displayed in the best 
    
    Here is the line chart. You can’t see the years since they are too many, but once you click on them, they are visible: <br>
 
-   IMAGE LINECHART <br>
+   IMAGE LINECHART 
+   <br>
+   <br>
 
    <b>7. Textsearch </b> <br>
    Finally, we went back from specific to international by adding a Textsearch that could reveal various composers based on the city they were from. 
@@ -331,9 +345,11 @@ The problems encountered in the creation of this function were of various nature
 added a time FILTER. <br>
   
   IMAGE QUERY TEXTSEARCH <br>
-  IMAGE TEXTSEARCH <br>
+  IMAGE TEXTSEARCH 
+  <br>
+  <br>
 
-  <b>Conclusion<7b><br>
+  <b>Conclusion</b><br>
     The MusicBo corpus has provided us evidence about the meaningful contribution made by The Five in the music and cultural heritage of Russia. Their artistic impact has shaped and transformed the musical panorama of Russia, leaving an everlasting impression that resonates even in contemporary times. <br>
 
  </p>
