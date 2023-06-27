@@ -268,8 +268,74 @@ Firstly, in order to have a foundation from which we could build our study, we n
 However, there was no way to define the 'has occupation composer' predicate, so we had to use the Wikidata endpoint through the SERVICE function. Finally, to remove language duplicates we employed FILTER(lang(?label) = “en”), which gave us only one English variant for each single result. 
 The structuring of the query required the following steps: <br>
 
-<embed type="image/jpg" src="https://quickchart.io/chart?c=%7Btype:%22doughnut%22,%20data:%7Blabels:%5Bundefined%5D,datasets:%5B%7Blabel:%22data%22,%20data:%5B%5D%7D%5D%7D%7D">
+IMAGE QUERY COUNTER<br>
+
+Once we ran the query on Melody for the counter function, the given result was the following:<br>
+
+IMAGE COUNTER <br>
+
+   <b>2. Map</b> <br>
+   Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: <br>
+
+  IMAGE QUERY MAP <br>
+   IMAGE MAP <br>
    
+   <b>3. Doughnut chart</b> <br>
+   Having a particular interest in the development of classical music in Russia, we narrowed our research to the top 10 most cited Russian composers in MusicBo.The doughnut chart ranks the composers, from the most mentioned to the least mentioned one, based on their occurrences in the corpus. Once again, we started from the counter query and added a UNION function uniting two triplets that defined the person as having an origin from either Russia or the Russian Empire, since we were not sure to which country people in the 18th-19th century belonged. Below you can find the query and the doughnut chart. <br>
+
+   IMAGE QUERY DOUGHNUT <br>
+   IMAGE DOUGHNUT <br>
+
+   <b>4. Table</b> <br>
+   To give a more in-depth analysis, our focus moved to analysing 5 of the 10 most mentioned Russian composers, since, through the interrogation of the MusicBo corpus, we found out they are part of the same composition group: The Five or The Mighty Five. 
+We then created a query that could give us back a table displaying some of the life’s 
+aspects of these noteworthy composers.
+We started the query with the SERVICE function, since we already had found the Wikidata entity for The Five, as well as its properties. The OPTIONAL keyword was used, since we could not be sure that the information we were looking for in Wikidata would be available, therefore we wanted to have the results returned nonetheless for each member. An issue we encountered, however, was specifying the occupation of each member, since we wanted to focus on just one interesting occupation per composer that did not deal with music. Therefore the FILTER regex function was used to limit the results. Finally, we initially added a “Place of death” variable, but the Polifonia returned a “Proxy error”. By simplifying the query, that is by removing a variable, the problem was solved. <br>
+
+   IMAGE QUERY TABLE GRANDE <br>
+
+   As you can see from the results, by searching for the composers, it shows the available data for each of them:<br>
+
+   IMAGE TABLE 1 <br>
+
+   <b>5. Sound table </b><br>
+   While exploring the Wikidata page of The Five, we were able to find an audio source of one of their compositions, which we thought would be interesting to add in order to deepen our knowledge about the chosen theme. Interestingly, the audio player would work fine on Google Chrome, but on Safari it did not. <br>
+
+   IMAGE QUERY TABLE SOUND <br>
+   IMAGE TABLE SOUND <br>
+
+   <b>5. Counter</b>
+   To better explore the Russian musical landscape of the 19th century, we chose to create a query showing the number of composition groups existing at that time. 
+
+While we were exploring the results, even though we added in the query the predicate “has origin in Russian Empire” (?composer ?origin wd:Q34266.), we noticed that there were many results not relevant to the research. For this reason, we applied the FILTER (!regex(str(?label), in order to exclude certain labels that contain specific keywords such as “American”, “Swedish”, “Soviet”, and “USSR”. <br>
+
+   IMAGE QUERY SECONDO COUNTER<br> 
+   IMAGE SECONDO COUNTER <br>
+
+   <b>6. Linechart </b><br>
+   Our focus then shifted to works of art composed in Russia, in order to show the variation in time after the influence of classical music in the 1800s. The work of art variable was defined as being composed by an author, who had the citizenship “Russian Empire” used previously. 
+One of the problems that we encountered in this query was that of year duplicates. We solved this problem by using the BIND function to extract the year within the query. In simple terms, the BIND keyword is used to assign a value to a variable. It allows to create a new variable and assign a specific value or expression to it, which can then be used in subsequent parts of the query. In the provided query, the BIND keyword is used to create a new variable called ?year and assign it the value of the year component of a date.
+Moreover, initially a FILTER was added to include only results from the 19th century, but then we noticed that with or without the FILTER the results were the same. This is because of the “has origin in Russian Empire” variable definition, which already defined the time. Finally, we had to add the OFFSET 1 keyword at the end of the query, as the first result returned in Polifonia was empty. Because of this null result, the query did not run correctly on Melody. 
+
+This variation in time of the Russian works of art can be displayed in the best way by a line chart, for which we created the following query: <br>
+
+   IMAGE QUERY LINECHART <br>
+   
+   Here is the line chart. You can’t see the years since they are too many, but once you click on them, they are visible: <br>
+
+   IMAGE LINECHART <br>
+
+   <b>7. Textsearch </b> <br>
+   Finally, we went back from specific to international by adding a Textsearch that could reveal various composers based on the city they were from. 
+The problems encountered in the creation of this function were of various nature. In fact, we were constantly faced with a Proxy Error, because of which we had to simplify our query. Firstly, we noticed that the occupation “composer” we assigned to the variable was one of the first issue noticed, therefore we had to find a Wikidata property common to all composers. The triplet “?composer <has genre> <classical music>” worked. Secondly, our initial purpose was to define the <<searchterm>> as a country and not a city. However, this led to a more complicated query, since we had to define the composer’s place of birth and its related country. Once again, we simplified the query by only using the place of birth. Finally, since we did not have the Wikidata property “has origin in Russian Empire”, we 
+added a time FILTER. <br>
+  
+  IMAGE QUERY TEXTSEARCH <br>
+  IMAGE TEXTSEARCH <br>
+
+  <b>Conclusion<7b><br>
+    The MusicBo corpus has provided us evidence about the meaningful contribution made by The Five in the music and cultural heritage of Russia. Their artistic impact has shaped and transformed the musical panorama of Russia, leaving an everlasting impression that resonates even in contemporary times. <br>
+
  </p>
       <div class="content" id="exampleWork">
         <div class="project">
