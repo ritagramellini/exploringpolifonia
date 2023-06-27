@@ -226,20 +226,19 @@ By examining the data, we determined that the organisations were worthy of explo
 
     <b>1. Counter </b> <br>
    The initial step of this research involved identifying the total number of organisations mentioned in the MusicBo corpus. As indicated by the picture below, the count revealed a total of 307 organisations. <br>
-(foto counter di melody) 
+ <img src="img/organiz.png" style="width: 180px; height: auto;"> <br>
 To gain insight into the specific organisations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organisations’ names, revealing that they mainly consist of academies and music schools. Here is the running query:
 <br>
-(Foto query)
+ <img src="img/organizcount.png" style="width: 400px; height: auto;"> 
 <br><br>
    
  <b>2. Chart </b> <br>
 
    Secondly, we narrowed our research to the top 10 most cited organizations in the corpus. However, when running the query, the results showed us “JSTOR” as one of the main organizations: this is clearly an error. <br>
-(foto query e risultati)
+ <img src="img/jstor.png" style="width: 400px; height: auto;"> <br>
 
-   
 Therefore, we added the FILTER (!regex(str(?label), "jstor",'i')), used to delete an element from the list. This way the shown results were all relevant to the research. <br>
-(foto query) 
+ <img src="img/10orgcount.png" style="width: 400px; height: auto;"> <br>
 
 + foto chart 
 <br> <br>
@@ -249,17 +248,20 @@ Therefore, we added the FILTER (!regex(str(?label), "jstor",'i')), used to delet
 To gain deeper insight into the organizations in Bologna, we created a query that uses the “SERVICE <https://query.wikidata.org/bigdata/namespace/wdq/sparql>” statement to retrieve information about the foundation year from Wikidata. 
 To focus exclusively on the organizations located in Bologna, we introduced the variable ?cityUri, which is defined as an instance of amr:City.
 Additionally, we assigned a label to the city and filtered the results using the “FILTER regex (?label, "Bologna", "i")” statement. This ensures that only cities with the label containing “Bologna” are included in the query results. <br>
-  Once we obtained the results, we noticed that the entity 'San Petronio' was associated with two foundation dates.  
+  Once we obtained the results, we noticed that the entity 'San Petronio' was associated with two foundation dates.  <br>
 
   (foto con le due date diverse)
   <br>
-  Consequently, we did a search to disambiguate the results. It turned out that 1350 was the birthdate of the organization's founder, not the foundation date of the organization itself. Therefore, we included the “FILTER (YEAR(?foundationDate) != 1350) to eliminate the unrelated result. 
-  (foto query + foto table) 
+  Consequently, we did a search to disambiguate the results. It turned out that 1350 was the birthdate of the organization's founder, not the foundation date of the organization itself. Therefore, we included the “FILTER (YEAR(?foundationDate) != 1350) to eliminate the unrelated result. <br>
+   <img src="img/qtableorg.png" style="width: 400px; height: auto;"> <br>
+  + foto table) 
 <br> <br>
    
  <b>4. Chart </b> <br>
-In order to learn more about the organisations in Bologna and their occurrences in the MusicBo corpus, we ranked them through the use of the doughnut chart. Below you can find the query and the chart. 
-  (foto query + chart)
+In order to learn more about the organisations in Bologna and their occurrences in the MusicBo corpus, we ranked them through the use of the doughnut chart. Below you can find the query and the chart. <br>
+   <img src="img/qboloorg.png" style="width: 400px; height: auto;"> <br>
+
+  +foto chart)
   <br><br>
   
  <b>5. Table </b> <br>
@@ -267,21 +269,21 @@ In order to learn more about the organisations in Bologna and their occurrences 
 To create the query, we initially referred to the <a href="https://catalogo.beniculturali.it/">Catalogo dei Beni Culturali </a> to gather additional information about the organization. 
   On the website, we discovered the <a href="https://catalogo.beniculturali.it/detail/ArchitecturalOrLandscapeHeritage/0800264156">page</a> dedicated to the organization's building, which provided a link to the <a href="  https://dati.beniculturali.it/lodview-arco/resource/ArchitecturalOrLandscapeHeritage/0800264156.html">RDF page</a> of the entity. This RDF page likely contains further data related to the organization, which were incorporated into our query for a more detailed analysis. 
   <br>
-  screen query + screen table 
+  screen query 
+  + screen table 
   <br><br>
 
    <b>6. MusicBo Corpus and table</b> <br>
-  For a more detailed research, we proceeded to interrogate the MusicBo corpus on the Philharmonic Academy of Bologna, allowing us to find Giuseppe Torelli.
-<br>
-  foto ricerca sul corpus 
-  <br>
+  For a more detailed research, we proceeded to interrogate the MusicBo corpus on the Philharmonic Academy of Bologna, allowing us to find Giuseppe Torelli. <br>
+   <img src="img/corpus.png" style="width: 400px; height: auto;"> <br>
+
 Therefore, we worked on providing an overview of Giuseppe Torelli through the following query: <br>
-  foto query 
-  <br>
+   <img src="img/qtorelli.png" style="width: 400px; height: auto;"> <br>
+  
   As can be seen from the musician's wikidata page, there are four occupations associated with him.
 <br>
-  foto 4 occupations 
-  <br>
+   <img src="img/occupation.png" style="width: 400px; height: auto;"> <br>
+  
   However, we want to focus exclusively on his career as violinist, so we added the “FILTER (regex (?occupation, "violinist"))” statement. 
 Here is the final table on Melody:
 <br>
