@@ -263,6 +263,10 @@ Given our passion about Russian language and culture, we chose this theme in ord
 In this regard, after initially finding data about composers and their location in the world in the Polifonia knowledge graph, we decided to augment our search by using other endpoints, in particular Wikidata.
  <br>
  <br> 
+    <b>1. Counter</b> <br>
+Firstly, in order to have a foundation from which we could build our study, we needed to discover the number of worldwide composers, from the 1800s on, in the MusicBo corpus. We achieved this through the interrogation of the Polifonia knowledge graph, starting from the exploration of the Polifonia ontology “Person”.
+However, there was no way to define the 'has occupation composer' predicate, so we had to use the Wikidata endpoint through the SERVICE function. Finally, to remove language duplicates we employed FILTER(lang(?label) = “en”), which gave us only one English variant for each single result. 
+The structuring of the query required the following steps: <br>
  </p>
       <div class="content" id="exampleWork">
         <div class="project">
