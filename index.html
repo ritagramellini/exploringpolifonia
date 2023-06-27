@@ -86,7 +86,7 @@ Our purpose is to provide a deeper understanding and appreciation of the city's 
       <!--FIRST PROJECT-->
  <p style="padding-top: 5vh; margin-left: 90px; margin-right: 90px;">
 The <a href="https://melody-data.github.io/stories/published_stories/story_1686593087.71216.html">story</a> <i>People and cities in MusicBo: Knowledge Graph Overview</i> delves into the vibrant connections between individuals and cities mentioned in the MusicBo corpus, following both a quantitative and qualitative overview of the corpus' content. 
-The aim was to highlight the multifaceted influences that shape the city's musical culture. The starting point for this story was the exploration of the “City” and “Person” ontologies in the Polifonia knowledge graph and, afterwards, the further research of their entities by means of the Wikidata and DBpedia endpoints. 
+The aim was to highlight the multifaceted influences that shape the city's musical culture. The starting point for this story was the exploration of the “City” and “Person” classes in the Polifonia knowledge graph and, afterwards, the further research of their entities by means of the Wikidata and DBpedia endpoints. 
  <br>
  <br> 
               <b>1. Counters</b> <br>
@@ -172,7 +172,7 @@ For the second table the chosen endpoint was DBpedia. We followed a “Treasure 
    
 <b>5. Chart</b> <br>  
    Our next objective was to discover the connection between Rossini and cities, which, perhaps, had been influenced by him and his melodies. Since we already had Rossini’s DBpedia URI, we decided to use it once again to explore the same knowledge graph. In the query Rossini was connected to a variable ?city, which in turn was defined in three triplets united by the UNION function. 
-   This function is indeed useful whenever many resources and ontologies are found for the same concept, in this case “city”, and therefore to retrieve the most results out of the knowledge graph, as it combines all the results specified in each individual query into a single result set. 
+   This function is indeed useful whenever many resources and classes are found for the same concept, in this case “city”, and therefore to retrieve the most results out of the knowledge graph, as it combines all the results specified in each individual query into a single result set. 
 
    <br> 
    <img src="img/querymark.png" alt="querym"style="width: 400px; height: auto;">  
@@ -251,7 +251,7 @@ In this regard, after initially finding data about composers and their location 
  <br>
  <br> 
     <b>1. Counter</b> <br>
-Firstly, in order to have a foundation from which we could build our study, we needed to discover the number of worldwide composers, from the 1800s on, in the MusicBo corpus. We achieved this through the interrogation of the Polifonia knowledge graph, starting from the exploration of the Polifonia ontology “Person”.
+Firstly, in order to have a foundation from which we could build our study, we needed to discover the number of worldwide composers, from the 1800s on, in the MusicBo corpus. We achieved this through the interrogation of the Polifonia knowledge graph, starting from the exploration of the Polifonia class “Person”.
 However, there was no way to define the 'has occupation composer' predicate, so we had to use the Wikidata endpoint through the SERVICE function. Finally, to remove language duplicates we employed FILTER(lang(?label) = “en”), which gave us only one English variant for each single result. 
 The structuring of the query required the following steps: <br>
 
