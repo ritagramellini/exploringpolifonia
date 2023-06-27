@@ -364,11 +364,21 @@ To extend the study about other important violinists, the text search function h
     <section id="work">
       <!--FIRST PROJECT-->
  <p style="padding-top: 5vh; margin-left: 90px; margin-right: 90px;">
+
    The <a href="https://melody-data.github.io/stories/published_stories/story_1687714706.423208.html">story</a> <i>Melodies from the East: Uncovering Russian Classical Music in MusicBo</i> explores the connections between Bologna's musical heritage and the international music scene within the MusicBo corpus. In particular, the main focus was on the Russian musical culture during the 19th century, regarding classical music and notable composers of the time. 
 Given our passion about Russian language and culture, we chose this theme in order to discover its significance in MusicBo. 
 In this regard, after initially finding data about composers and their location in the world in the Polifonia knowledge graph, we decided to augment our search by using other endpoints, in particular Wikidata.
- <br>
+ 
+   
+   <br>
  <br> 
+ </p>
+
+
+<h1 class="sectionTitle" style="color: #2A85BC; width: 100%; margin-bottom: 3vh">Methodology</h1>
+       <p style="padding-top: 5vh; margin-left: 90px; margin-right: 90px;">
+  
+
     <b>1. Counter</b> <br>
 Firstly, in order to have a foundation from which we could build our study, we needed to discover the number of worldwide composers, from the 1800s on, in the MusicBo corpus. We achieved this through the interrogation of the Polifonia knowledge graph, starting from the exploration of the Polifonia class “Person”.
 However, there was no way to define the 'has occupation composer' predicate, so we had to use the Wikidata endpoint through the SERVICE function. Finally, to remove language duplicates we employed FILTER(lang(?label) = “en”), which gave us only one English variant for each single result. 
