@@ -227,8 +227,7 @@ By examining the data, we determined that the organisations were worthy of explo
     <b>1. Counter </b> <br>
    The initial step of this research involved identifying the total number of organisations mentioned in the MusicBo corpus. As indicated by the picture below, the count revealed a total of 307 organisations. <br>
  <img src="img/organiz.png" style="width: 180px; height: auto;"> <br>
-To gain insight into the specific organisations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organisations’ names, revealing that they mainly consist of academies and music schools. Here is the running query:
-<br>
+To gain insight into the specific organisations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organisations’ names, revealing that they mainly consist of academies and music schools. Here is the running query: <br>
  <img src="img/organizcount.png" style="width: 400px; height: auto;"> 
 <br><br>
    
@@ -240,7 +239,8 @@ To gain insight into the specific organisations mentioned, the variables in the 
 Therefore, we added the FILTER (!regex(str(?label), "jstor",'i')), used to delete an element from the list. This way the shown results were all relevant to the research. <br>
  <img src="img/10orgcount.png" style="width: 400px; height: auto;"> <br>
 
-+ foto chart 
+ <img src="img/10org.png" style="width: 400px; height: auto;"> <br>
+
 <br> <br>
    
  <b>3. Table </b> <br>
@@ -254,14 +254,14 @@ Additionally, we assigned a label to the city and filtered the results using the
   <br>
   Consequently, we did a search to disambiguate the results. It turned out that 1350 was the birthdate of the organization's founder, not the foundation date of the organization itself. Therefore, we included the “FILTER (YEAR(?foundationDate) != 1350) to eliminate the unrelated result. <br>
    <img src="img/qtableorg.png" style="width: 400px; height: auto;"> <br>
-  + foto table) 
+   <img src="img/tableboloorg.png" style="width: 400px; height: auto;"> 
 <br> <br>
    
  <b>4. Chart </b> <br>
 In order to learn more about the organisations in Bologna and their occurrences in the MusicBo corpus, we ranked them through the use of the doughnut chart. Below you can find the query and the chart. <br>
    <img src="img/qboloorg.png" style="width: 400px; height: auto;"> <br>
 
-  +foto chart)
+   <img src="img/chartboloorg.png" style="width: 400px; height: auto;"> 
   <br><br>
   
  <b>5. Table </b> <br>
@@ -270,7 +270,7 @@ To create the query, we initially referred to the <a href="https://catalogo.beni
   On the website, we discovered the <a href="https://catalogo.beniculturali.it/detail/ArchitecturalOrLandscapeHeritage/0800264156">page</a> dedicated to the organization's building, which provided a link to the <a href="  https://dati.beniculturali.it/lodview-arco/resource/ArchitecturalOrLandscapeHeritage/0800264156.html">RDF page</a> of the entity. This RDF page likely contains further data related to the organization, which were incorporated into our query for a more detailed analysis. 
   <br>
   screen query 
-  + screen table 
+     <img src="img/building.png" style="width: 400px; height: auto;"> 
   <br><br>
 
    <b>6. MusicBo Corpus and table</b> <br>
@@ -285,9 +285,8 @@ Therefore, we worked on providing an overview of Giuseppe Torelli through the fo
    <img src="img/occupation.png" style="width: 700px; height: auto;"> <br>
   
   However, we want to focus exclusively on his career as violinist, so we added the “FILTER (regex (?occupation, "violinist"))” statement. 
-Here is the final table on Melody:
-<br>
-  tabella finale su melody 
+Here is the final table on Melody: <br>
+   <img src="img/torelli.png" style="width: 400px; height: auto;"> <br>
   <br><br>
 <b>7. Counters </b> <br>
 To give a more in-depth analysis of the role of violinists in the music scene of the XVIII century, we conducted an examination of various types of musicians. Through the use of counters, we were able to gather quantitative data that clearly demonstrated the elevated presence of violinists. These findings allowed us to show that violinists were of great importance and much more required compared to other musicians. 
@@ -299,12 +298,13 @@ To give a more in-depth analysis of the role of violinists in the music scene of
 We decided then to conduct a diachronic study to show the rise of violinists’ popularity over the years. Our focus was on a specific timeframe, which goes from the middle of the XVII century to the beginning of the XIX century. Therefore, we included the following filter: “FILTER (YEAR(?date) > 1649 && YEAR(?date) < 1801)”. <br>
   While creating the query to achieve the desired results, we encountered some issues. In fact, the first query specified the date format (year (xsd:dateTime(?date)) as ?label) within the “SELECT DISTINCT” statement. However, the results were full of duplicates, as displayed in the image below: 
 <br>
-  immagine duplicates
+    <img src="img/duplicates.png" style="width: 400px; height: auto;"> 
   <br>
   This issue was solved by adding the BIND function to extract the year within the query. ​​In simple terms, the BIND keyword is used to assign a value to a variable. It allows to create a new variable and assign a specific value or expression to it, which can then be used in subsequent parts of the query. In the provided query, the BIND keyword is used to create a new variable called ?year and assign it the value of the year component of a date.
 Here is the final query and the line chart on Melody: 
 <br>
-  foto query + linechart
+  foto query + 
+   <img src="img/timeline.png" style="width: 400px; height: auto;"> 
   <br><br>
   <b>9. Map</b> <br>
   Our research was then directed to learning about the country of citizenship of the violinists from the XVIII century: this is a data that can be perfectly illustrated by the map function. Thus, we generated this query:
@@ -317,11 +317,10 @@ Here is the final query and the line chart on Melody:
     <b>10. Map</b> <br>
 To extend the study about other important violinists, the text search function has been added. The query was used to gather information about violinists born in a specific city and is performed on the Wikidata endpoint. However, we used the “SERVICE” to ensure that the results only included individuals from the Polifonia knowledge graph. 
 <br>
-  foto queey 
-  By writing the name of a city , it is possible to find out the biographical information of violinists from that city and see an image depicting them. For instance, by entering “Paris” on the search term function, the results show some violinists born there.
+ <img src="img/qvioltxtsearch.png" style="width: 400px; height: auto;"> 
+  By writing the name of a city, it is possible to find out the biographical information of violinists from that city and see an image depicting them. For instance, by entering “Paris” on the search term function, the results show some violinists born there.
 <br>
-  foto query e search term 
-
+ <img src="img/violtxtsearch.png" style="width: 400px; height: auto;"> 
 
 
 
