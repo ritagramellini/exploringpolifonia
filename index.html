@@ -269,14 +269,14 @@ The structuring of the query required the following steps: <br>
 
 Once we ran the query on Melody for the counter function, the given result was the following:<br>
 
-  <img src="img/counter1.jpg" style="width: 300px; height: auto;"> 
+  <img src="img/counter1.jpg" style="width: 180px; height: auto;"> 
    <br>
    <br>
 
    <b>2. Map</b> <br>
    Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: <br>
 
-    <img src="img/querymap.jpg" style="width: 400px; height: auto;"><br>
+    <img src="img/querymap.jpg" style="width: 500px; height: auto;">
      <img src="img/worldmap.jpg" style="width: 400px; height: auto;"> 
    <br>
    <br>
@@ -284,8 +284,8 @@ Once we ran the query on Melody for the counter function, the given result was t
    <b>3. Doughnut chart</b> <br>
    Having a particular interest in the development of classical music in Russia, we narrowed our research to the top 10 most cited Russian composers in MusicBo.The doughnut chart ranks the composers, from the most mentioned to the least mentioned one, based on their occurrences in the corpus. Once again, we started from the counter query and added a UNION function uniting two triplets that defined the person as having an origin from either Russia or the Russian Empire, since we were not sure to which country people in the 18th-19th century belonged. Below you can find the query and the doughnut chart. <br>
 
-     <img src="img/querydchart.jpg" style="width: 400px; height: auto;"> <br>
-     <img src="img/dchart.jpg" style="width: 400px; height: auto;">
+     <img src="img/querydchart.jpg" style="width: 500px; height: auto;"> 
+     <img src="img/dchart.jpg" style="width: 500px; height: auto;">
    <br>
    <br>
 
@@ -299,7 +299,7 @@ We started the query with the SERVICE function, since we already had found the W
 
    As you can see from the results, by searching for the composers, it shows the available data for each of them:<br>
 
-     <img src="img/tableru.jpg" style="width: 400px; height: auto;">
+     <img src="img/tableru.jpg" style="width: 400px; height: auto;"> <br>
     <img src="img/tableru2.jpg" style="width: 400px; height: auto;">
    <br>
    <br>
@@ -308,7 +308,7 @@ We started the query with the SERVICE function, since we already had found the W
    While exploring the Wikidata page of The Five, we were able to find an audio source of one of their compositions, which we thought would be interesting to add in order to deepen our knowledge about the chosen theme. Interestingly, the audio player would work fine on Google Chrome, but on Safari it did not. <br>
 
     <img src="img/querytableaudio.jpg" style="width: 400px; height: auto;"> <br>
-    <img src="img/tableaudio.jpg" style="width: 400px; height: auto;"> 
+    <img src="img/tableaudio.jpg" style="width: 450px; height: auto;"> 
    <br>
    <br>
 
@@ -317,8 +317,8 @@ We started the query with the SERVICE function, since we already had found the W
 
 While we were exploring the results, even though we added in the query the predicate “has origin in Russian Empire” (?composer ?origin wd:Q34266.), we noticed that there were many results not relevant to the research. For this reason, we applied the FILTER (!regex(str(?label), in order to exclude certain labels that contain specific keywords such as “American”, “Swedish”, “Soviet”, and “USSR”. <br>
 
-  <img src="img/querycounter2.jpg" style="width: 400px; height: auto;"><br> 
-     <img src="img/counter2.jpg" style="width: 300px; height: auto;"> 
+  <img src="img/querycounter2.jpg" style="width: 400px; height: auto;"> 
+     <img src="img/counter2.jpg" style="width: 180px; height: auto;"> 
    <br>
    <br>
 
@@ -333,7 +333,7 @@ This variation in time of the Russian works of art can be displayed in the best 
    
    Here is the line chart. You can’t see the years since they are too many, but once you click on them, they are visible: <br>
 
-     <img src="img/linechartru.jpg" style="width: 400px; height: auto;">
+     <img src="img/linechartru.jpg" style="width: 500px; height: auto;">
    <br>
    <br>
 
@@ -342,7 +342,7 @@ This variation in time of the Russian works of art can be displayed in the best 
 The problems encountered in the creation of this function were of various nature. In fact, we were constantly faced with a Proxy Error, because of which we had to simplify our query. Firstly, we noticed that the occupation “composer” we assigned to the variable was one of the first issue noticed, therefore we had to find a Wikidata property common to all composers. The triplet “?composer <has genre> <classical music>” worked. Secondly, our initial purpose was to define the <<searchterm>> as a country and not a city. However, this led to a more complicated query, since we had to define the composer’s place of birth and its related country. Once again, we simplified the query by only using the place of birth. Finally, since we did not have the Wikidata property “has origin in Russian Empire”, we 
 added a time FILTER. <br>
   
-    <img src="img/querytextsearch.jpg" style="width: 400px; height: auto;"> <br>
+    <img src="img/querytextsearch.jpg" style="width: 500px; height: auto;"> 
     <img src="img/textsearchru.jpg" style="width: 400px; height: auto;">
   <br>
   <br>
