@@ -214,9 +214,8 @@ We could have added some other data, like the birth place or the death place, bu
       <!--FIRST PROJECT-->
  <p style="padding-top: 5vh; margin-left: 90px; margin-right: 90px;">
       The <a href="  https://projects.dharc.unibo.it/melody/1687277754.778511/musicbo_unveiled_discovering_bolognas_music_organizations_and_the_xviii_century_violinists">story</a> 
-   <i>MusicBo Unveiled: Discovering Bologna's Musical Organizations and the XVIII Century Violinists </i> aims at showcasing the music organizations identified in the MusicBo corpus. 
-      Our approach involved moving from a more general point of view to the analysis of particular facets, such as music academies and their features. 
-      Particularly, the research began with the exploration of organizations in Bologna and gradually delved into the success of violinists in the XVIII century and their impact on the musical culture. <br> 
+   <i>MusicBo Unveiled: Discovering Bologna's Musical Organizations and the XVIII Century Violinists </i> aims at showcasing the music organizations identified in the MusicBo corpus through the interrogation of the Polifonia knowledge graph. Our approach involved moving from a more general point of view to the analysis of particular facets, such as music academies and their features. Particularly, the research began with the exploration of organizations in Bologna and gradually delved into the success of violinists in the XVIII century and their impact on the musical culture. 
+   To deepen our research, we retrieved information on the datasets ArCo and Wikidata. <br> 
  <br> 
     <b>The basis</b> <br>
 
@@ -228,8 +227,19 @@ By examining the data, we determined that the organisations were worthy of explo
     <b>1. Counter </b> <br>
    The initial step of this research involved identifying the total number of organisations mentioned in the MusicBo corpus. As indicated by the picture below, the count revealed a total of 307 organisations. <br>
 
-To gain insight into the specific organisations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organisations’ names, revealing that they mainly consist of academies and music schools. <br>
+To gain insight into the specific organisations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organisations’ names, revealing that they mainly consist of academies and music schools. Here is the running query:
+<br>
 (Foto query)
+<br><br>
+   
+ <b>2. Chart </b> <br>
+
+   Secondly, we narrowed our research to the top 10 most cited organizations in the corpus. However, when running the query, the results showed us “JSTOR” as one of the main organizations: this is clearly an error. <br>
+
+  FOTO 
+   
+Therefore, we added the FILTER (!regex(str(?label), "jstor",'i')), used to delete an element from the list. This way the shown results were all relevant to the research. <br>
+(foto query) 
 
 
     </div>
