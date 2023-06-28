@@ -200,7 +200,7 @@ For the second table the chosen endpoint was DBpedia. We followed a “Treasure 
 This approach serves as a valuable method for gaining insight into the data extracted from the knowledge graphs and understanding the connections between them. <br> <br> 
       <b>7. Text search</b> <br>
   To further develop our story, we decided to add the text search feature, enabling our viewers to broaden their horizons by looking for other information concerning people within the MusicBo corpus that left a lasting mark in Bologna’s musical landscape. <br>
-In this case, the query retrieves information about a person from the Wikidata endpoint based on a search term. It fetches musician’s name, and if available, also the birth and death year, along with an associated image. We employed the “SERVICE” statement to establish a connection with the Wikidata endpoint, ensuring that the extracted results exclusively feature individuals from the Polifonia knowledge graph. The variable ?musician is associated with ?wiki, indicating that the search term should be matched with the musician’s name. Additionally, to ensure the query results are in English, the SERVICE wikibase:label { bd:serviceParam wikibase:language "en".}
+In this case, the query retrieves information about a person from the Wikidata endpoint based on a search term. It fetches the musician’s name, and if available, also the birth and death year, along with an associated image. We employed the “SERVICE” statement to establish a connection with the Wikidata endpoint, ensuring that the extracted results exclusively feature individuals from the Polifonia knowledge graph. The variable ?musician is associated with ?wiki, indicating that the search term should be matched with the musician’s name. Additionally, to ensure the query results are in English, the SERVICE wikibase:label { bd:serviceParam wikibase:language "en".}
 was added. <br>
 
 <img src="img/textsearch.png" alt="txtsrch"style="width: 600px; height: auto;">  <br>
@@ -239,14 +239,14 @@ But don’t let your exploration end here… Stay curious, that's how you learn!
     <b>The basis</b> <br>
 
 As already stated, the primary aim of this project is to offer an overview of the MusicBo corpus and promote the rich musical heritage of Bologna. Following the initial exploration of people and cities mentioned in the corpus, we have decided to expand the project’s scope by delving into other entities that deserve recognition and attention. <br>
-To determine the subject of this story, we created a query that presents all the types of entities mentioned in the corpus. By using the “ORDER BY DESC'' function, the results are arranged in descending order, providing insight into the frequency of each entity type within the corpus. This enabled us to identify and prioritise the different types of entities based on their occurrence in the corpus. <br> 
+To determine the subject of this story, we created a query that presents all the types of entities mentioned in the corpus. By using the “ORDER BY DESC'' function, the results are arranged in descending order, providing insight into the frequency of each entity type within the corpus. This enabled us to identify and prioritize the different types of entities based on their occurrence in the corpus. <br> 
  <img src="img/basis.png" alt="offset"style="width: 450px; height: auto;">       <br>
-By examining the data, we determined that the organisations were worthy of exploration for our storytelling. <br> <br>
+By examining the data, we determined that the organizations were worthy of exploration for our storytelling. <br> <br>
 
     <b>1. Counter </b> <br>
-   The initial step of this research involved identifying the total number of organisations mentioned in the MusicBo corpus. As indicated by the picture below, the count revealed a total of 307 organisations. <br>
+   The initial step of this research involved identifying the total number of organizations mentioned in the MusicBo corpus. As indicated by the picture below, the count revealed a total of 307 organizations. <br>
  <img src="img/organiz.png" style="width: 180px; height: auto;"> <br>
-To gain insight into the specific organisations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organisations’ names, revealing that they mainly consist of academies and music schools. Here is the running query: <br>
+To gain insight into the specific organizations mentioned, the variables in the “SELECT DISTINCT” clause can be replaced with ?slabel. This modification allows for the discovery of the actual organizations’ names, revealing that they mainly consist of academies and music schools. Here is the running query: <br>
  <img src="img/organizcount.png" style="width: 500px; height: auto;"> 
 <br><br>
    
@@ -276,7 +276,7 @@ Additionally, we assigned a label to the city and filtered the results using the
 <br> <br>
    
  <b>4. Chart </b> <br>
-In order to learn more about the organisations in Bologna and their occurrences in the MusicBo corpus, we ranked them through the use of the doughnut chart. Below you can find the query and the chart. <br>
+In order to learn more about the organizations in Bologna and their occurrences in the MusicBo corpus, we ranked them through the use of the doughnut chart. Below you can find the query and the chart. <br>
    <img src="img/qboloorg.png" style="width: 400px; height: auto;"> <br>
 
    <img src="img/chartboloorg.png" style="width: 600px; height: auto;"> 
