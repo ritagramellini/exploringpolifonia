@@ -409,7 +409,7 @@ Once we ran the query on Melody for the counter function, the given result was t
    <br>
    
    <b>3. Doughnut chart</b> <br>
-   Having a particular interest in the development of classical music in Russia, we narrowed our research to the top 10 most cited Russian composers in MusicBo.The doughnut chart ranks the composers, from the most mentioned to the least mentioned one, based on their occurrences in the corpus. Once again, we started from the counter query and added a UNION function uniting two triplets that defined the person as having an origin from either Russia or the Russian Empire, since we were not sure to which country people in the 18th-19th century belonged. Below you can find the query and the doughnut chart. <br>
+   Having a particular interest in the development of classical music in Russia, we narrowed our research to the top 10 most cited Russian composers in MusicBo. The doughnut chart ranks the composers, from the most mentioned to the least mentioned one, based on their occurrences in the corpus. Once again, we started from the counter query and added a UNION function uniting two triplets that defined the person as having an origin from either Russia or the Russian Empire, since we were not sure to which country people in the 18th-19th century belonged. Below you can find the query and the doughnut chart. <br>
 
      <img src="img/querydchart.jpg" style="width: 500px; height: auto;"> 
      <img src="img/dchart.jpg" style="width: 500px; height: auto;">
@@ -424,10 +424,10 @@ Once we ran the query on Melody for the counter function, the given result was t
    <br>
 
    <b>5. Table</b> <br>
-   To give a more in-depth analysis, our focus moved to analysing 5 of the 10 most mentioned Russian composers, since, through the interrogation of the MusicBo corpus, we found out they are part of the same composition group: The Five or The Mighty Five. 
+   To give a more in-depth analysis, our focus moved to analyzing 5 of the 10 most mentioned Russian composers, since, through the interrogation of the MusicBo corpus, we found out they are part of the same composition group: The Five or The Mighty Five. 
 We then created a query that could give us back a table displaying some of the life’s 
 aspects of these noteworthy composers.
-We started the query with the SERVICE function, since we already had found the Wikidata entity for The Five, as well as its properties. The OPTIONAL keyword was used, since we could not be sure that the information we were looking for in Wikidata would be available, therefore we wanted to have the results returned nonetheless for each member. An issue we encountered, however, was specifying the occupation of each member, since we wanted to focus on just one interesting occupation per composer that did not deal with music. Therefore the FILTER regex function was used to limit the results. Finally, we initially added a “Place of death” variable, but the Polifonia returned a “Proxy error”. By simplifying the query, that is by removing a variable, the problem was solved. <br>
+We started the query with the SERVICE function, since we already had found the Wikidata entity for The Five, as well as its properties. The OPTIONAL statement was used, since we could not be sure that the information we were looking for in Wikidata would be available, therefore we wanted to have the results returned nonetheless for each member. An issue we encountered, however, was specifying the occupation of each member, since we wanted to focus on just one interesting occupation per composer that did not deal with music. Therefore the FILTER regex function was used to limit the results. Finally, we initially added a “Place of death” variable, but the Polifonia returned a “Proxy error”. By simplifying the query, that is by removing a variable, the problem was solved. <br>
 
      <img src="img/querytable.jpg" style="width: 550px; height: auto;"> <br>
 
