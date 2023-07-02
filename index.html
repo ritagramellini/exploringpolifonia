@@ -398,7 +398,7 @@ Once we ran the query on Melody for the counter function, the given result was t
    <br>
 
    <b>2. Map</b> <br>
-   Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: Secondly, from knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: <br>
+   From knowing how many composers are mentioned in the corpus, we moved to exploring where these composers can be specifically found. We started from the previous query and added to the person the Wikidata property “country of citizenship” in order to find their position in the world. Here is the query: <br>
 
     <img src="img/querymap.jpg" style="width: 500px; height: auto;">
      <img src="img/worldmap.jpg" style="width: 550px; height: auto;"> 
@@ -455,7 +455,7 @@ While we were exploring the results, even though we added in the query the predi
 
    <b>8. Linechart </b><br>
    Our focus then shifted to works of art composed in Russia, in order to show the variation in time after the influence of classical music in the 1800s. The work of art variable was defined as being composed by an author, who had the citizenship “Russian Empire” used previously. 
-One of the problems that we encountered in this query was that of year duplicates. We solved this problem by using once again the about  function to extract the year within the query, which assigns a value to a variable In simple terms, the BIND keyword is used to assign a value to a variable.
+One of the problems that we encountered in this query was that of year duplicates. We solved this problem by using once again the BIND function to extract the year within the query.
 Moreover, initially a FILTER was added to include only results from the 19th century, but then we noticed that with or without the FILTER the results were the same. This is because of the “has origin in Russian Empire” variable definition, which already defined the time. Finally, we had to add the OFFSET 1 keyword at the end of the query, as the first result returned in Polifonia was empty. Because of this null result, the query did not run correctly on Melody. 
 
 This variation in time of the Russian works of art can be displayed in the best way by a line chart, for which we created the following query: <br>
