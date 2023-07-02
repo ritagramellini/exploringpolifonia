@@ -113,9 +113,8 @@ Here are the results: <br>
                 <br>
 
 Then, we created the following queries, where the variables ?s stands for subject: <br>
-
-<img src="img/queryp.png" style="width: 500px; height: auto;">
-<img src="img/queryc.png" style="width: 450px; height: auto;"> 
+  <img src="img/query10c.png" alt="quey10c"style="width: 400px; height: auto;">  
+<img src="img/query10p.png" alt="query10p"style="width: 430px; height: auto;">  
    <br>
 
 These queries retrieve all the people and cities cited in the corpus. The function (count(distinct ?s as ?count) provides us with the number of mentions without duplicates, as displayed in the pictures below: <br>
@@ -141,8 +140,10 @@ These queries retrieve all the people and cities cited in the corpus. The functi
 <b>3. Charts</b> <br>
 To further develop our research, we created a list of the most mentioned cities and people in the corpus. 
   The results are shown in a bar chart, which ranks each city and person based on their occurrences. <br>
-  <img src="img/query10c.png" alt="quey10c"style="width: 400px; height: auto;">  
-<img src="img/query10p.png" alt="query10p"style="width: 430px; height: auto;">  
+         
+<img src="img/queryp.png" style="width: 500px; height: auto;">
+<img src="img/queryc.png" style="width: 450px; height: auto;"> 
+
    <br>
 For those two queries, we used the "GROUP BY ?label ?count", which means that the query will generate groups where each group represents a unique combination of city label or person label 
    and its corresponding count, while the "ORDER BY DESC(?count)" ensures that the results are sorted from the highest count to the lowest count. Finally, the “LIMIT 10” provides only the first 10 results. <br>
